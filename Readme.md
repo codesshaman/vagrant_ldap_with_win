@@ -47,6 +47,10 @@ or with make:
 
 ### Step 6
 
+WinRM transport may not set, you can install vbox guest addition in the ssl installation step and abort vagrant installing. All be work.
+
+### Step 7
+
 Connect to centos:
 
 ``ssh vagrant@192.168.58.202``
