@@ -1,4 +1,5 @@
 .vagrantboxes
 .vagrant
+shared/*
 windows
 centos
