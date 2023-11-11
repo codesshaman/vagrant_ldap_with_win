@@ -1,6 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+WINDOWS = "devopsguys/Windows2012R2Eval"
+CENTOS = "bento/centos-8.5"
+
 Vagrant.configure("2") do |config|
   config.vm.define "centos" do |centos|
-    centos.vm.box = "bento/centos-7"
+    centos.vm.box = CENTOS
     centos.vm.hostname = "centosldap"
     centos.vm.network "private_network", ip: "192.168.58.202"
     centos.vm.synced_folder "./shared", "/shared", type: "virtualbox"
@@ -14,7 +20,7 @@ Vagrant.configure("2") do |config|
     end
   end
   config.vm.define "windows" do |windows|
-    windows.vm.box = "devopsguys/Windows2012R2Eval"
+    windows.vm.box = WINDOWS
     windows.vm.hostname = "windowsldap"
     windows.vm.network "private_network", ip: "192.168.58.201"
     windows.vm.synced_folder "./shared", "/shared", type: "virtualbox"
