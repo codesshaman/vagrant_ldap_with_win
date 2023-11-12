@@ -1,40 +1,37 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-WINDOWS = "devopsguys/Windows2012R2Eval"
-CENTOS = "bento/centos-8.5"
-
 Vagrant.configure("2") do |config|
-  config.vm.define "centos" do |centos|
-    centos.vm.box = CENTOS
-    centos.vm.hostname = "centosldap"
-    centos.vm.network "private_network", ip: "192.168.58.202"
-    centos.vm.synced_folder "./shared", "/shared", type: "virtualbox"
-    id_rsa_pub = File.read("#{Dir.home}/.ssh/id_rsa.pub")
-    centos.vm.provision "copy ssh public key", type: "shell",
-    inline: "echo \"#{id_rsa_pub}\" >> /home/vagrant/.ssh/authorized_keys"
-    centos.vm.provider "virtualbox" do |v|
-      v.name = "centosldap"
-      v.memory = 1024
-      v.cpus = 1
-    end
-  end
+
+  # Конфигурация для Windows Server 2016
   config.vm.define "windows" do |windows|
-    windows.vm.box = WINDOWS
-    windows.vm.hostname = "windowsldap"
-    windows.vm.network "private_network", ip: "192.168.58.201"
-    windows.vm.synced_folder "./shared", "/shared", type: "virtualbox"
+    windows.vm.box = "gusztavvargadr/windows-server"
     windows.vm.communicator = "winrm"
-    windows.winrm.transport = :ssl
-    windows.winrm.ssl_peer_fingerprint = "ac:bd:ef:01:23:45:67:89:ab:cd:ef:01:23:45:67:89:ab:cd:ef"
-    windows.winrm.ssl_ca_cert = "certs/ca_cert.pem"
-    windows.winrm.ssl_cert = "certs/client_cert.pem"
-    windows.winrm.ssl_key = "certs/client_key.pem"
-    windows.winrm.ssl_peer_verification = false
-    windows.vm.provider "virtualbox" do |v|
-      v.name = "windowsldap"
-      v.memory = 2048
-      v.cpus = 2
+    windows.vm.network "private_network", ip: "192.168.56.10"
+    windows.vm.hostname = "windowsldap"
+    
+    # Дополнительные настройки для Windows Server 2016
+    windows.vm.provider "virtualbox" do |vb|
+      vb.name = "windowsldap"
+      vb.memory = "4096"
+      vb.gui = false
+      vb.cpus = "4"
     end
   end
+
+  # Конфигурация для CentOS Linux
+  config.vm.define "centos" do |centos|
+    centos.vm.box = "bento/centos-8.5"
+    centos.vm.network "private_network", ip: "192.168.56.20"
+    centos.vm.hostname = "centos-server"
+    
+    # Дополнительные настройки для CentOS Linux
+    centos.vm.provider "virtualbox" do |vb|
+      vb.name = "centos"
+      vb.memory = "1024"
+      vb.gui = false
+      vb.cpus = "1"
+    end
+  end
+
 end

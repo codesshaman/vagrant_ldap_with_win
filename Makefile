@@ -24,6 +24,7 @@ help:
 	@echo -e "$(WARN_COLOR)- make build			: Building configuration"
 	@echo -e "$(WARN_COLOR)- make connect			: Connect to VM with ssh"
 	@echo -e "$(WARN_COLOR)- make down			: Stopping configuration"
+	@echo -e "$(WARN_COLOR)- make gem			: Install gem dependencies"
 	@echo -e "$(WARN_COLOR)- make path			: Change path to vagrantboxes"
 	@echo -e "$(WARN_COLOR)- make ps			: View configuration"
 	@echo -e "$(WARN_COLOR)- make push			: Push changes to git"
@@ -33,8 +34,8 @@ help:
 
 build:
 	@printf "$(OK_COLOR)==== Building configuration ${name}... ====$(NO_COLOR)\n"
-	@vagrant box add devopsguys/Windows2012R2Eval windows
-	@vagrant box add bento/centos-7 centos
+	@vagrant box add gusztavvargadr/windows-server windows
+	@vagrant box add bento/centos-8.5 centos
 
 connect:
 	@printf "$(OK_COLOR)==== Connecting to virtual machine ${name}... ====$(NO_COLOR)\n"
@@ -43,6 +44,11 @@ connect:
 down:
 	@printf "$(ERROR_COLOR)==== Stopping configuration ${name}... ====$(NO_COLOR)\n"
 	@vagrant halt
+
+gem:
+	@printf "$(ERROR_COLOR)==== Install gem dependencies for ${name}... ====$(NO_COLOR)\n"
+	@sudo gem install winrm
+	@sudo gem install winrm-elevated
 
 push:
 	@printf "$(ERROR_COLOR)==== Push changes to git... ====$(NO_COLOR)\n"
