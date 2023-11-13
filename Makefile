@@ -16,7 +16,7 @@ UCYAN='\e[4;36m'        # Cyan
 
 all:
 	@printf "Launch configuration ${name}...\n"
-	@vagrant up --provider=virtualbox
+	@vagrant up --provider=vmware_desktop
 
 help:
 	@echo -e "$(OK_COLOR)==== All commands of ${name} configuration ====$(NO_COLOR)"
@@ -56,7 +56,7 @@ push:
 
 re:	down
 	@printf "$(OK_COLOR)==== Restart configuration ${name}... ====$(NO_COLOR)\n"
-	@vagrant up --provider=virtualbox
+	@vagrant up --provider=vmware_desktop
 
 ps:
 	@printf "$(BLUE)==== View configuration ${name}... ====$(NO_COLOR)\n"

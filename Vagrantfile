@@ -11,11 +11,10 @@ Vagrant.configure("2") do |config|
     windows.vm.hostname = "windowsldap"
     
     # Дополнительные настройки для Windows Server 2016
-    windows.vm.provider "vmware_desktop" do |vb|
-      vb.name = "windowsldap"
-      vb.memory = "4096"
-      vb.gui = false
-      vb.cpus = "4"
+    windows.vm.provider "vmware_desktop" do |v|
+      v.memory = "4096"
+      v.gui = true
+      v.cpus = "4"
     end
   end
 
@@ -26,11 +25,10 @@ Vagrant.configure("2") do |config|
     centos.vm.hostname = "centos-server"
     
     # Дополнительные настройки для CentOS Linux
-    centos.vm.provider "vmware_desktop" do |vb|
-      vb.name = "centos"
-      vb.memory = "1024"
-      vb.gui = false
-      vb.cpus = "1"
+    centos.vm.provider "vmware_desktop" do |v|
+      v.memory = "1024"
+      v.gui = true
+      v.cpus = "1"
     end
   end
 
