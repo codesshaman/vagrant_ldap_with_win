@@ -8,7 +8,7 @@ Your need install [vagrant](https://github.com/hashicorp/vagrant-installers/rele
 
 Download box bento/centos-8.5 for virtualbox from [vagrantup](https://app.vagrantup.com/bento/boxes/centos-8.5 "vagrantup").
 
-Download box devopsguys/Windows2012R2Eval for virtualbox from [vagrantup](https://app.vagrantup.com/devopsguys/boxes/Windows2012R2Eval "vagrantup").
+Download box devopsguys/Windows2012R2Eval for virtualbox from [vagrantup](https://app.vagrantup.com/gusztavvargadr/boxes/windows-server "vagrantup").
 
 ### Step 2
 
