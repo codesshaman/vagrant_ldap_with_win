@@ -1,14 +1,14 @@
-# Vagrant virual machine with clean centos-7
+# Vagrant virual machine with clean centos-7 on vmware
 
-Your need install vagrant and virtualbox for up this configuration.
+Your need install vagrant and vmware for up this configuration.
 
-Your need install [vagrant](https://github.com/hashicorp/vagrant-installers/releases/tag/v2.3.4.dev%2Bmain "vagrant") and  [virtualbox](https://www.virtualbox.org/ "virtualbox") for up this configuration. Optional you can use [make](https://www.gnu.org/software/make/ "make").
+Your need install [vagrant](https://github.com/hashicorp/vagrant-installers/releases/tag/v2.3.4.dev%2Bmain "vagrant") and  [vmware](https://www.vmware.com/ "vmware") for up this configuration. Optional you can use [make](https://www.gnu.org/software/make/ "make").
 
 ### Step 1
 
-Download box bento/centos-8.5 for virtualbox from [vagrantup](https://app.vagrantup.com/bento/boxes/centos-8.5 "vagrantup").
+Download box bento/centos-8.5 for vmware from [vagrantup](https://app.vagrantup.com/bento/boxes/centos-8.5 "vagrantup").
 
-Download box devopsguys/Windows2012R2Eval for virtualbox from [vagrantup](https://app.vagrantup.com/gusztavvargadr/boxes/windows-server "vagrantup").
+Download box devopsguys/Windows2012R2Eval for vmware from [vagrantup](https://app.vagrantup.com/gusztavvargadr/boxes/windows-server "vagrantup").
 
 ### Step 2
 
@@ -39,7 +39,7 @@ or with make:
 
 Install configuration:
 
-``vagrant up --provider=virtualbox``
+``vagrant up --provider=vmware_desktop``
 
 or with make:
 

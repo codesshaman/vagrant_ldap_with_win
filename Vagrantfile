@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     windows.vm.hostname = "windowsldap"
     
     # Дополнительные настройки для Windows Server 2016
-    windows.vm.provider "virtualbox" do |vb|
+    windows.vm.provider "vmware_desktop" do |vb|
       vb.name = "windowsldap"
       vb.memory = "4096"
       vb.gui = false
@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     centos.vm.hostname = "centos-server"
     
     # Дополнительные настройки для CentOS Linux
-    centos.vm.provider "virtualbox" do |vb|
+    centos.vm.provider "vmware_desktop" do |vb|
       vb.name = "centos"
       vb.memory = "1024"
       vb.gui = false
