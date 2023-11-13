@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "centos" do |centos|
     centos.vm.box = "bento/centos-8.5"
     centos.vm.network "private_network", ip: "192.168.56.20"
-    centos.vm.hostname = "centos-server"
+    centos.vm.hostname = "centosldap"
     
     # Дополнительные настройки для CentOS Linux
     centos.vm.provider "virtualbox" do |vb|

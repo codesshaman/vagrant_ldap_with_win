@@ -1,6 +1,10 @@
 d4a33e01-bf8b-405b-a949-06d72f1f10f4
 0305e3e9-ae91-4bbd-889f-88785f21136a
 c17edc71-5d1c-4e8f-bf3f-afc679132ac3
+windows_vw
+centos_vw
+windows_vb
+centos_vb
 .vagrantboxes
 .vagrant
 shared/*
